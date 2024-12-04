@@ -1,4 +1,4 @@
-#task: https://adventofcode.com/2024/day/3
+#task: https://adventofcode.com/2024/day/2
 with open("input.txt", "r") as file:
     data = [line.split() for line in file.readlines()]
     # my second solution task 1
