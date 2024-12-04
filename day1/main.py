@@ -1,3 +1,4 @@
+#task: https://adventofcode.com/2024/day/1
 with open("input.txt","r") as file:
     data = file.readlines()
     print(data)
