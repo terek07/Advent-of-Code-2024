@@ -1,4 +1,4 @@
-#task 2:
+#task: https://adventofcode.com/2024/day/3
 with open("input.txt", "r") as file:
     data = [line.split() for line in file.readlines()]
     # my second solution task 1
@@ -55,4 +55,4 @@ with open("input.txt", "r") as file:
         if safe:
             counter += 1
 
-    print(counter)
+    print(counter) #result task 2
