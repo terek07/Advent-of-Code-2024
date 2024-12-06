@@ -1,3 +1,5 @@
+#nie działa
+
 with open("input.txt", "r") as file:
     map = [list(line.strip()) for line in file.readlines()]
 for i, line in enumerate(map):
@@ -15,7 +17,7 @@ positions = set()
 loops = 0
 for i in range(len(map)):
     for j in range(len(map[i])):
-        breaker = false
+        breaker = False
         newmap = map[:]
         newmap[i][j] = "#"
         positions2 = []
