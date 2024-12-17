@@ -1,11 +1,13 @@
-#My own solution - work with small example input but causes "RecursionError: maximum recursion depth exceeded" on actual input
+#task: https://adventofcode.com/2024/day/16
+
+#My own solution - works with small example input but causes "RecursionError: maximum recursion depth exceeded" on actual input
 
 with open("input.txt", "r") as file:
     data = [e.strip() for e in file.readlines()]
 
 sx, end = 0, 0
 sfacing = "east"
-for i, line in enumerate(data):
+for i, line in enumerate(data): #gets staring coordinates and end coordinates
     if 'S' in line:
         sx, sy = (i, line.index("S"))
     if 'E' in line:
@@ -13,8 +15,8 @@ for i, line in enumerate(data):
     if sx and end:
         break
 
-sscore = 0
 scores = []
+visiteds = []
 
 def main(score, x, y, facing, visited):
     if (x, y, facing) in visited:
@@ -22,6 +24,7 @@ def main(score, x, y, facing, visited):
     visited.add((x, y, facing))
     if x == end[0] and y == end[1]:
         scores.append(score)
+        visiteds.append(visited)
         # print(score)
         return
     if facing == "east":
@@ -53,5 +56,11 @@ def main(score, x, y, facing, visited):
         if data[x][y + 1] in ('.', 'E'):
             main(score + 1001, x, y + 1, "east", visited.copy())
 
-main(sscore, sx, sy, sfacing, set())
-print(min(scores))
+main(0, sx, sy, sfacing, set())
+print(min(scores)) # task 1 solution
+result2 = set()
+for score, visited in zip(scores, visiteds):
+    if score == min(scores):
+        for x, y, _ in visited:
+            result2.add((x, y))
+print(len(result2)) #task 2 solution
